@@ -91,5 +91,56 @@ The positive/negative returns were predicted using binary classification methods
 
 - Accuracy: 0.53, indicating that the model correctly predicts the target variable in 53% of the instances.
 
+Tuning each of the models was also conducted. Several features in the models were manipulated to try and achieve better results. The tuning process was reduced, as more components led to a significant run time, with minimal benefits. An algorithm examining the entire series of tuning parameters would yield the best results, but it would likely still result in poor prediction models. The tuning process is described below with the following results:
 
-The success of these models indicates the difficulty in adequately predicting stock prices. 
+**The Logistic Regression Model:**
+
+- Tuning: Regularization Strength C was tested with the following values 0.001, 0.01, 0.1, 1, 10, 100. The best parameter for C was 0.001. The original test examined a C value of 5, and was found to yield the best results; therefore, the tuning parameters would likely not benefit the performance of the model much.
+
+- Precision: For class 0, it's 0.53, and for class 1, it's 0.49. These values indicate the proportion of true positive predictions among all positive predictions.
+
+- Recall (Sensitivity): For class 0, it's 0.17, and for class 1, it's 0.84. These values indicate the proportion of true positive predictions among all actual positive instances.
+
+- F1-score: For class 0, it's 0.25, and for class 1, it's 0.62.
+
+- Accuracy: 0.50, indicating that the model correctly predicts the target variable in 50% of the instances.
+
+
+**The Support Vector Machine Model:**
+
+- Tuning: Regularization Strength C was tested with the following values 0.1, 1, 10, and Gamma was tested with the following values: 0.1, 1, 10. The kernel type was looked at; however, it took significant computer processing to run the code and was removed. The best test parameters were C = 0.1, and Gamma = 10. These results yielded a slightly better performance than the original model.
+
+- Precision: For class 0, it's 0.51, and for class 1, it's 0.49. These values indicate the proportion of true positive predictions among all positive predictions.
+
+- Recall (Sensitivity): For class 0, it's 0.28, and for class 1, it's 0.58. These values indicate the proportion of true positive predictions among all actual positive instances.
+
+- F1-score: For class 0, it's 0.36, and for class 1, it's 0.58.
+
+- Accuracy: 0.50, indicating that the model correctly predicts the target variable in 50% of the instances.
+
+
+**The Random Forest Model:**
+
+- Tuning: The number of estimators, the max depth, the minimum number of samples to split an internal node, and the minimum number of samples required to be a leaf node, were all tuned in this mode. The number of estimators chosen was 50, 100, and 150, the max depth chosen was 10, 20, and 30, the minimum number of samples to split an internal node chosen was 2, 5, 10, and the minimum number of samples required to be a leaf node were 1 and 2. The best parameters for the Random Forest Model created were: 'max_depth': 10, 'min_samples_leaf': 1, 'min_samples_split': 10, 'n_estimators': 50. These results yielded a slightly worse performance than the original model.
+
+- Precision: For class 0, it's 0.53, and for class 1, it's 0.51. These values indicate the proportion of true positive predictions among all positive predictions.
+
+- Recall (Sensitivity): For class 0, it's 0.48, and for class 1, it's 0.56. These values indicate the proportion of true positive predictions among all actual positive instances.
+
+- F1-score: For class 0, it's 0.51, and for class 1, it's 0.53.
+
+- Accuracy: 0.52, indicating that the model correctly predicts the target variable in 52% of the instances.
+
+**The K-Nearest Neighbors (KNN) Model:**
+
+- Tuning: The number of neighbors used for making predictions was manipulated and tested over the following values 1, 2, 3, 4, 5, 6, 7, 8, 9, and 10. The best value for the number of neighbors was found to be 1, and the performance of the model was slightly increased.
+
+- Precision: For class 0, it's 0.54, and for class 1, it's 0.52. These values indicate the proportion of true positive predictions among all positive predictions.
+
+- Recall (Sensitivity): For class 0, it's 0.50, and for class 1, it's 0.55. These values indicate the proportion of true positive predictions among all actual positive instances.
+
+- F1-score: For class 0, it's 0.52, and for class 1, it's 0.53.
+
+- Accuracy: 0.53, indicating that the model correctly predicts the target variable in 53% of the instances.
+
+The success of these models indicates the difficulty in adequately predicting stock prices.
